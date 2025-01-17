@@ -20,15 +20,14 @@ Each approach demonstrates a distinct workflow for medical image preprocessing, 
 1. [Directory Structure](#directory-structure)
 2. [Requirements](#requirements)
 3. [Data Preparation](#data-preparation)
-4. [Installation](#installation)
-5. [Usage](#usage)
+4. [Usage](#usage)
    - [Segment Anything Model (SAM) + XGBoost Pipeline](#segment-anything-model-sam--xgboost-pipeline)
    - [2D Medical Image Classification with SVM](#2d-medical-image-classification-with-svm)
    - [3D Volume Processing with Random Forest](#3d-volume-processing-with-random-forest)
    - [2D Slice Classification with XGBoost](#2d-slice-classification-with-xgboost)
    - [3D CNN Pipeline](#3d-cnn-pipeline)
-6. [License](#license)
-7. [Acknowledgments](#acknowledgments)
+5. [License](#license)
+6. [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -116,34 +115,6 @@ pip install numpy pandas scikit-learn scikit-image nibabel xgboost torch torchvi
 4. **Verify Dimensions**:  
    - 2D pipelines expect 2D slices or single slices extracted from 3D volumes.
    - 3D pipelines expect 3D volumes (e.g., `(height, width, depth)`).
-
----
-
-## Installation
-
-1. **Clone** this repo:
-   ```bash
-   git clone https://github.com/<YOUR_USERNAME>/<REPO_NAME>.git
-   cd <REPO_NAME>
-   ```
-
-2. **Set up environment** (optional but recommended):
-   ```bash
-   conda create -n medical-imaging python=3.9 -y
-   conda activate medical-imaging
-   ```
-   or
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Mac/Linux
-   # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   or manually install the packages listed in [Requirements](#requirements).
 
 ---
 
