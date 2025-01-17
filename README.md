@@ -39,7 +39,7 @@ A typical directory structure might look like this (you can adapt it to your own
 .
 ├── data/
 │   ├── TNM.xlsx          # Excel file containing patient IDs and TNM stages
-│   ├── here_we_come.csv  # Example CSV for the SAM-based pipeline
+│   ├── here_we_come.csv  # Containing metadata image paths, TNM labels, and patient IDs.  
 │   └── niig_unprocessed/ # Example folder containing patient subdirectories
 │       ├── patientA/
 │       │   └── MR/CT subfolders ...
