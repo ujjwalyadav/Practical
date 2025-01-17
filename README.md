@@ -46,11 +46,11 @@ A typical directory structure might look like this (you can adapt it to your own
 │       ├── patientB/
 │       │   └── ...
 │       └── ...
-├── sam_xgboost.py        # Script demonstrating SAM feature extraction + XGBoost
-├── 2d_svm.py             # 2D SVM classification pipeline
-├── 3d_random_forest.py   # 3D volume processing + Random Forest classification
-├── 2d_xgboost.py         # 2D slice classification with XGBoost
-├── 3d_cnn.py             # 3D CNN pipeline for TNM stage classification
+├── segment_anything_final.py        # Script demonstrating SAM feature extraction + XGBoost
+├── svm_classifier_final.py             # 2D SVM classification pipeline
+├── random_forest_final.py   # 3D volume processing + Random Forest classification
+├── gradient_boost_final.py         # 2D slice classification with XGBoost
+├── 3d_cnn_final.py             # 3D CNN pipeline for TNM stage classification
 ├── requirements.txt      # List of Python dependencies
 └── README.md
 ```
@@ -124,7 +124,7 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 ### Segment Anything Model (SAM) + XGBoost Pipeline
 
-- **Script Name**: `sam_xgboost.py`
+- **Script Name**: `segment_anything_final.py`
 - **Purpose**:  
   1. Reads metadata from a CSV (e.g., `here_we_come.csv`) containing image paths, TNM labels, and patient IDs.  
   2. Loads the Segment Anything Model (SAM) for feature extraction.  
@@ -134,7 +134,7 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 - **Run**:
   ```bash
-  python sam_xgboost.py
+  python segment_anything_final.py
   ```
   Make sure your GPU is available and that you have the correct **segment-anything** and **torch** versions installed.
 
@@ -142,7 +142,7 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 ### 2D Medical Image Classification with SVM
 
-- **Script Name**: `2d_svm.py`
+- **Script Name**: `svm_classifier_final.py`
 - **Purpose**:  
   1. Loads 2D slices (or extracts the middle slice from 3D images).  
   2. Resizes/normalizes each slice.  
@@ -150,14 +150,14 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 - **Run**:
   ```bash
-  python 2d_svm.py
+  python svm_classifier_final.py
   ```
 
 ---
 
 ### 3D Volume Processing with Random Forest
 
-- **Script Name**: `3d_random_forest.py`
+- **Script Name**: `random_forest_final.py`
 - **Purpose**:  
   1. Collects 3D volumes from patient subdirectories.  
   2. Resamples them to a target shape (e.g., `[Depth, Height, Width]`).  
@@ -166,14 +166,14 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 - **Run**:
   ```bash
-  python 3d_random_forest.py
+  python random_forest_final.py
   ```
 
 ---
 
 ### 2D Slice Classification with XGBoost
 
-- **Script Name**: `2d_xgboost.py`
+- **Script Name**: `gradient_boost_final.py`
 - **Purpose**:  
   1. Extracts 2D slices (middle slice if 3D, or directly 2D).  
   2. Optionally applies PCA for dimensionality reduction.  
@@ -181,14 +181,14 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 - **Run**:
   ```bash
-  python 2d_xgboost.py
+  python gradient_boost_final.py
   ```
 
 ---
 
 ### 3D CNN Pipeline
 
-- **Script Name**: `3d_cnn.py`
+- **Script Name**: `3d_cnn_final.py`
 - **Purpose**:  
   1. Loads 3D volumes from patient directories and resizes them to a uniform shape (64×64×64 by default).  
   2. Implements a **3D CNN** in TensorFlow/Keras.  
@@ -196,7 +196,7 @@ Below is a high-level guide for each script. **Important**: Adjust file paths (E
 
 - **Run**:
   ```bash
-  python 3d_cnn.py
+  python 3d_cnn_final.py
   ```
   **Note**: This script requires a working **GPU** with compatible CUDA drivers for timely training.
 
